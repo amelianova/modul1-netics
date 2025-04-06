@@ -161,6 +161,7 @@ API berhasil:
 - Diakses dari browser http://20.2.64.250/health
   ![image](https://github.com/user-attachments/assets/5161c75c-2e53-4681-b401-bfb752eda4b8)
 - Dideploy otomatis ketika push ke branch main
+- Docker Image: [amelianova/fastapi-health](https://hub.docker.com/r/amelianova/fastapi-health)
 
 Catatan Tambahan
 ----------------
