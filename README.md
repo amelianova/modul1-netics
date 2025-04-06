@@ -36,6 +36,7 @@ Endpoint ini akan menampilkan informasi status API dan uptime server. Contoh res
 
 Struktur File
 -------------
+```
 fastapi-health/
 ├── .github/
 │   └── workflows/
@@ -44,6 +45,7 @@ fastapi-health/
 ├── main.py                   # FastAPI source
 ├── requirements.txt          # Python dependencies
 ├── README.md                 # Dokumentasi ini
+```
 
 Langkah Pengerjaan
 ------------------
@@ -51,7 +53,7 @@ Langkah Pengerjaan
 1. Membuat API FastAPI
 
 File main.py:
-
+```
 from fastapi import FastAPI
 from datetime import datetime
 import time
@@ -71,12 +73,14 @@ def health_check():
         "timestamp": current_time,
         "uptime": uptime
     }
+```
 
 2. Menulis requirements.txt
-`
+```
 fastapi
 uvicorn
-`
+```
+
 3. Menulis Dockerfile (Multi-stage Build)
 ```
 FROM python:3.10-slim AS builder
@@ -91,10 +95,13 @@ COPY main.py .
 EXPOSE 8000
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
+
 4. Menyiapkan Server VPS
 - OS: Ubuntu 22.04
-- Install Docker & SSH
+- Gunakan azure.com untuk memperoleh vps secara gratis
 - Buat user `amel`
+  sumber: https://youtu.be/4xGPfVfJ4iM?si=YlIX4V3L-p3dCWfk
+
 
 5. Setup SSH Key & GitHub
 - Buat SSH key di lokal (ssh-keygen)
@@ -140,8 +147,8 @@ Note: Tambahkan SERVER_HOST, SERVER_USER, dan SERVER_KEY ke GitHub Secrets.
 Hasil Akhir
 -----------
 API berhasil:
-- Diakses via curl http://<ip-vps>/health
-- Diakses dari browser
+- Diakses via curl http://20.2.64.250/health
+- Diakses dari browser http://20.2.64.250/health
 - Dideploy otomatis ketika push ke branch main
 
 Catatan Tambahan
@@ -150,8 +157,3 @@ Catatan Tambahan
 - Docker digunakan dengan pendekatan multi-stage agar image lebih ringan
 - CI/CD menggunakan best practice: memisahkan konfigurasi via GitHub Secrets dan menggunakan action yang aman (appleboy/ssh-action)
 
-Referensi
----------
-- https://fastapi.tiangolo.com/
-- https://docs.docker.com/
-- https://docs.github.com/en/actions
