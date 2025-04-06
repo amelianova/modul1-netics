@@ -24,7 +24,7 @@ Teknologi yang Digunakan
 Endpoint /health
 ----------------
 Endpoint ini akan menampilkan informasi status API dan uptime server. Contoh response:
-`
+```
 {
   "nama": "Tunas Bimatara Chrisnanta Budiman",
   "nrp": "5025231999",
@@ -32,7 +32,7 @@ Endpoint ini akan menampilkan informasi status API dan uptime server. Contoh res
   "timestamp": "2025-04-06T10:20:45.123Z",
   "uptime": 125.23
 }
-`
+```
 
 Struktur File
 -------------
