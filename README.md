@@ -50,7 +50,7 @@ fastapi-health/
 Langkah Pengerjaan
 ------------------
 
-1. Membuat API FastAPI
+### 1. Membuat API FastAPI
 
 File main.py:
 ```
@@ -75,13 +75,13 @@ def health_check():
     }
 ```
 
-2. Menulis requirements.txt
+### 2. Menulis requirements.txt
 ```
 fastapi
 uvicorn
 ```
 
-3. Menulis Dockerfile (Multi-stage Build)
+### 3. Menulis Dockerfile (Multi-stage Build)
 ```
 FROM python:3.10-slim AS builder
 WORKDIR /app
@@ -96,21 +96,21 @@ EXPOSE 8000
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-4. Menyiapkan Server VPS
+### 4. Menyiapkan Server VPS
 - OS: Ubuntu 22.04
 - Gunakan azure.com untuk memperoleh vps secara gratis
 - Buat user `amel`
   sumber: https://youtu.be/4xGPfVfJ4iM?si=YlIX4V3L-p3dCWfk
 
 
-5. Setup SSH Key & GitHub
+### 5. Setup SSH Key & GitHub
 - Buat SSH key di lokal (ssh-keygen)
 - Tambahkan ke GitHub (Settings → SSH and GPG keys)
 - Tambahkan public key GitHub ke VPS (~/.ssh/authorized_keys)
 - Tambahkan VPS IP ke known hosts:
   ssh-keyscan -H <ip-vps> >> ~/.ssh/known_hosts
 
-6. Setup CI/CD: deploy.yml
+### 6. Setup CI/CD: deploy.yml
 ```
 .github/workflows/deploy.yml:
 
