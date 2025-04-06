@@ -1,18 +1,18 @@
 from fastapi import FastAPI
 import time
 import datetime
-
-app = FastAPI()
+import os
 
 start_time = time.time()
+app = FastAPI()
 
 @app.get("/health")
-
-def health_check():
+def health():
+    uptime_seconds = int(time.time() - start_time)
     return {
         "nama": "Tunas Bimatara Chrisnanta Budiman",
         "nrp": "5025231999",
         "status": "UP",
         "timestamp": datetime.datetime.now().isoformat(),
-        "uptime": f"{round(time.time() - start_time, 2)}s"
+        "uptime": f"{uptime_seconds} seconds"
     }
