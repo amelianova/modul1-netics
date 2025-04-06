@@ -101,12 +101,20 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 - Gunakan azure.com untuk memperoleh vps secara gratis
 - Buat user `amel`
   sumber: https://youtu.be/4xGPfVfJ4iM?si=YlIX4V3L-p3dCWfk
+  ![image](https://github.com/user-attachments/assets/bad0a699-fd77-4873-acf6-0e978512425d)
+
 
 
 ### 5. Setup SSH Key & GitHub
 - Buat SSH key di lokal (ssh-keygen)
+  ![image](https://github.com/user-attachments/assets/49c27dfe-e343-45f4-bcd4-e96882f68026)
+
 - Tambahkan ke GitHub (Settings → SSH and GPG keys)
+  ![WhatsApp Image 2025-04-06 at 18 59 20_57e01ef4](https://github.com/user-attachments/assets/9af64d9e-b871-415c-aada-40528eed3152)
+
 - Tambahkan public key GitHub ke VPS (~/.ssh/authorized_keys)
+  ![image](https://github.com/user-attachments/assets/6c8a53a1-6198-4d2d-96b0-687402c1306a)
+
 - Tambahkan VPS IP ke known hosts:
   ssh-keyscan -H <ip-vps> >> ~/.ssh/known_hosts
 
@@ -143,12 +151,15 @@ jobs:
           docker run -d -p 80:8000 --name fastapi-health fastapi-health
 ```
 Note: Tambahkan SERVER_HOST, SERVER_USER, dan SERVER_KEY ke GitHub Secrets.
+![image](https://github.com/user-attachments/assets/a41cfb97-5e6a-46fa-bbd6-c94d3f85239a)
+
 
 Hasil Akhir
 -----------
 API berhasil:
 - Diakses via curl http://20.2.64.250/health
 - Diakses dari browser http://20.2.64.250/health
+  ![image](https://github.com/user-attachments/assets/5161c75c-2e53-4681-b401-bfb752eda4b8)
 - Dideploy otomatis ketika push ke branch main
 
 Catatan Tambahan
